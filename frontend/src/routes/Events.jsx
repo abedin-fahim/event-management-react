@@ -1,43 +1,17 @@
-import { Fragment } from "react"
-import { Link } from "react-router-dom";
+import { Fragment } from 'react';
 
-const EVENTS = [
-    {
-        id: 'e1',
-        title: 'An Events 1'
-    },
-    {
-        id: 'e2',
-        title: 'An Events 2'
-    },
-    {
-        id: 'e3',
-        title: 'An Events 3'
-    },
-    {
-        id: 'e4',
-        title: 'An Events 4'
-    },
-]
+import { useLoaderData } from 'react-router-dom';
 
-const EventsPage = () => {
-    // const param = useParams();
+import EventsList from '../components/EventsList';
 
-    return (
-        <Fragment>
-            <h1>Welcome to the Events Page</h1>
-            <ul>
-                {EVENTS.map((event) => (
-                    <li key={event.id}>
-                        {/* <Link to={`/events/${event.id}`}>{event.title}</Link> */}
-                        {/* Relative path */}
-                        <Link to={event.id}>{event.title}</Link>
-                    </li>
-                ))}
-            </ul>
+function EventsPage() {
+  const events = useLoaderData();
 
-        </Fragment>
-    );
-};
+  return (
+    <Fragment>
+      <EventsList events={events} />
+    </Fragment>
+  );
+}
 
 export default EventsPage;
