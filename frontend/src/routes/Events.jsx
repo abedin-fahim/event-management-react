@@ -16,3 +16,16 @@ function EventsPage() {
 }
 
 export default EventsPage;
+
+// Common pattern of storing the data is in the file we are using the loader in.
+// We import the function in router file where we declare the loader
+export async function loader() {
+  const response = await fetch('http://localhost:8080/events');
+
+  if (!response.ok) {
+    // ...
+  } else {
+    const resData = await response.json();
+    return resData.events;
+  }
+}
