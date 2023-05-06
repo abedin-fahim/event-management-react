@@ -30,9 +30,16 @@ function App() {
               element: <EventsPage />,
               loader: eventLoader,
             },
-            { path: ':eventId', element: <EventDetailPage />, loader: selectedEventLoader },
+            {
+              path: ':eventId',
+              id: 'event-detail',
+              loader: selectedEventLoader,
+              children: [
+                { index: true, element: <EventDetailPage /> },
+                { path: 'edit', element: <EditEventPage /> },
+              ]
+            },
             { path: 'new', element: <NewEventPage /> },
-            { path: ':eventId/edit', element: <EditEventPage /> },
           ]
         }
       ]

@@ -1,11 +1,17 @@
-import { Fragment } from "react"
+import { Fragment } from 'react';
+import { useRouteLoaderData } from 'react-router-dom';
+
+import EventForm from '../components/EventForm';
 
 const EditEventPage = () => {
-    return (
-        <Fragment>
-            <h1>Edit your event here: </h1>
-        </Fragment>
-    );
+  const data = useRouteLoaderData('event-detail');
+  const event = data.event;
+
+  return (
+    <Fragment>
+      <EventForm event={event} />
+    </Fragment>
+  );
 };
 
 export default EditEventPage;
