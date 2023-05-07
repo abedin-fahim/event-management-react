@@ -9,7 +9,10 @@ const EditEventPage = () => {
 
   return (
     <Fragment>
-      <EventForm event={event} />
+      <EventForm
+        method='PATCH'
+        event={event}
+      />
     </Fragment>
   );
 };
