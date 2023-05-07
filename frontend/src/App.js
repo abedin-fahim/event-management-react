@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import HomePage from './routes/Home';
 import EventsPage, { loader as eventLoader } from './routes/Events';
-import { loader as selectedEventLoader } from './routes/EventDetails';
+import { loader as selectedEventLoader, action as deleteEventAction } from './routes/EventDetails';
 import { action as postEventAction } from './routes/NewEvent';
 import EventDetailPage from './routes/EventDetails';
 import NewEventPage from './routes/NewEvent';
@@ -36,7 +36,7 @@ function App() {
               id: 'event-detail',
               loader: selectedEventLoader,
               children: [
-                { index: true, element: <EventDetailPage /> },
+                { index: true, element: <EventDetailPage />, action: deleteEventAction },
                 { path: 'edit', element: <EditEventPage /> },
               ]
             },
