@@ -1,10 +1,5 @@
 import { Fragment } from 'react';
-import {
-  json,
-  redirect,
-  useLoaderData,
-  useRouteLoaderData,
-} from 'react-router-dom';
+import { json, redirect, useRouteLoaderData } from 'react-router-dom';
 
 import EventItem from '../components/EventItem';
 
@@ -15,8 +10,6 @@ const EventDetailsPage = () => {
   return (
     <Fragment>
       <EventItem event={selectedEvent} />
-      {/* <h1>Here are the event details </h1>
-            <p><i>{params.eventId}</i></p> */}
     </Fragment>
   );
 };
@@ -51,3 +44,4 @@ export async function action({ params, request }) {
 
   return redirect('/events');
 }
+// Find error in my code
